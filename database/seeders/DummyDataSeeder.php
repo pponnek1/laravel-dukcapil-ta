@@ -17,13 +17,13 @@ class DummyDataSeeder extends Seeder
         $faker = Faker::create();
 
         // Membuat data User
-        for ($i = 0; $i < 20; $i++) {
-            User::create([
-                'name' => $faker->name,
-                'email' => $faker->unique()->safeEmail,
-                'password' => bcrypt('1234'),
-            ]);
-        }
+        // for ($i = 0; $i < 20; $i++) {
+        //     User::create([
+        //         'name' => $faker->name,
+        //         'email' => $faker->unique()->safeEmail,
+        //         'password' => bcrypt('1234'),
+        //     ]);
+        // }
 
         // // Membuat data Layanan
         // for ($i = 0; $i < 5; $i++) {
@@ -48,30 +48,30 @@ class DummyDataSeeder extends Seeder
         //     ]);
         // }
 
-        // Membuat data AntrianStore
-    //     for ($i = 0; $i < 100; $i++) {
-    //         $antrian = Antrian::inRandomOrder()->first();
-    //         $user = User::inRandomOrder()->first();
-    //         $tanggal = Carbon::today()->format('Y-m-d');
-    //         $kode_awal = $antrian->kode;
-    //         $kode_urut = str_pad($i + 1, 3, '0', STR_PAD_LEFT);
-    //         $kode = $kode_awal . '-' . $kode_urut;
+    //     Membuat data AntrianStore
+        for ($i = 0; $i < 100; $i++) {
+            $antrian = Antrian::inRandomOrder()->first();
+            $user = User::inRandomOrder()->first();
+            $tanggal = Carbon::today()->format('Y-m-d');
+            $kode_awal = $antrian->kode;
+            $kode_urut = str_pad($i + 1, 3, '0', STR_PAD_LEFT);
+            $kode = $kode_awal . '-' . $kode_urut;
 
-    //         AntrianStore::create([
-    //             'user_id' => $user->id,
-    //             'antrian_id' => $antrian->id,
-    //             'tanggal' => $tanggal,
-    //             'kode' => $kode,
-    //             'nama_lengkap' => $faker->name,
-    //             'nomor_hp' => $faker->phoneNumber,
-    //             'alamat' => $faker->address,
-    //             'kuota' => 1,
-    //             'status' => 'daftar',
-    //             'waktu_ambil' => now(),
-    //             'dipanggil_pada' => null,
-    //             'selesai_pada' => null,
-    //         ]);
-    //     }
+            AntrianStore::create([
+                'user_id' => $user->id,
+                'antrian_id' => $antrian->id,
+                'tanggal' => $tanggal,
+                'kode' => $kode,
+                'nama_lengkap' => $faker->name,
+                'nomor_hp' => $faker->phoneNumber,
+                'alamat' => $faker->address,
+                'kuota' => 1,
+                'status' => 'daftar',
+                'waktu_ambil' => now(),
+                'dipanggil_pada' => null,
+                'selesai_pada' => null,
+            ]);
+        }
     // }
     }
 }
